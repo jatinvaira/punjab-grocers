@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PGA.Views.SignUpScreen"
+             BackgroundColor="White">
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="30" Spacing="20">
+
+        <!-- Logo -->
+        <Image Source="logo.png" 
+               HeightRequest="150" 
+               WidthRequest="150" 
+               HorizontalOptions="Center" />
+
+        <!-- Welcome Message -->
+        <Label Text="Create Your Account" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               TextColor="#388E3C"
+               HorizontalOptions="Center" 
+               Margin="0,0,0,10"/>
+
+        <!-- Entry Fields -->
+        <Entry Placeholder="Full Name" 
+               x:Name="nameEntry"
+               Margin="0,10,0,0"
+               BackgroundColor="#F0F0F0"
+               HeightRequest="50"
+               />
+        <Entry Placeholder="Email" 
+               x:Name="emailEntry" 
+               Keyboard="Email" 
+               Margin="0,10,0,0"
+               BackgroundColor="#F0F0F0"
+               HeightRequest="50"
+               />
+        <Entry Placeholder="Password" 
+               x:Name="passwordEntry" 
+               IsPassword="True" 
+               Margin="0,10,0,0"
+               BackgroundColor="#F0F0F0"
+               HeightRequest="50"
+               />
+        <Entry Placeholder="Confirm Password" 
+               x:Name="confirmPasswordEntry" 
+               IsPassword="True" 
+               Margin="0,10,0,20"
+               BackgroundColor="#F0F0F0"
+               HeightRequest="50"
+               />
+
+        <!-- Sign Up Button -->
+        <Button Text="Sign Up"
+                FontSize="20"
+                TextColor="White"
+                BackgroundColor="#388E3C"
+                CornerRadius="25"
+                HeightRequest="50"
+                Clicked="OnSignUpClicked"
+                HorizontalOptions="Center" />
+
+        <!-- Already have an account -->
+        <StackLayout Orientation="Horizontal" 
+                     HorizontalOptions="Center"
+                     Margin="20,0,0,0">
+            <Label Text="Already have an account?"
+                   FontSize="14"
+                   TextColor="Gray"/>
+            <Button Text="Log In"
+        FontSize="14"
+        TextColor="#388E3C"
+        BackgroundColor="Transparent"
+        Clicked="OnLoginClicked"/>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

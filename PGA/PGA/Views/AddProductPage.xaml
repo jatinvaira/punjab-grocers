@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PGA.Views.AddProductPage"
+             Title="Add Product"
+             BackgroundColor="#F7F7F7">
+
+    <StackLayout Padding="20" Spacing="15">
+        <!-- Page Title -->
+        <Label Text="Add New Product" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center"
+               Margin="0,0,0,20"/>
+
+        <!-- Title Entry -->
+        <Frame HasShadow="True"
+               CornerRadius="5"
+               BackgroundColor="White"
+               BorderColor="#DDDDDD"
+               Margin="0,0,0,10">
+            <StackLayout Padding="10">
+                <Entry x:Name="TitleEntry" 
+                       Placeholder="Title" 
+                       BackgroundColor="Transparent"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- Description Entry -->
+        <Frame HasShadow="True"
+               CornerRadius="5"
+               BackgroundColor="White"
+               BorderColor="#DDDDDD"
+               Margin="0,0,0,10">
+            <StackLayout Padding="10">
+                <Entry x:Name="DescriptionEntry" 
+                       Placeholder="Description" 
+                       BackgroundColor="Transparent"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- Image URL Entry -->
+        <Frame HasShadow="True"
+               CornerRadius="5"
+               BackgroundColor="White"
+               BorderColor="#DDDDDD"
+               Margin="0,0,0,10">
+            <StackLayout Padding="10">
+                <Entry x:Name="ImageUrlEntry" 
+                       Placeholder="Image URL" 
+                       BackgroundColor="Transparent"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- Price Entry -->
+        <Frame HasShadow="True"
+               CornerRadius="5"
+               BackgroundColor="White"
+               BorderColor="#DDDDDD"
+               Margin="0,0,0,10">
+            <StackLayout Padding="10">
+                <Entry x:Name="PriceEntry" 
+                       Placeholder="Price" 
+                       Keyboard="Numeric"
+                       BackgroundColor="Transparent"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- Save Button -->
+        <Button Text="Save" 
+                Clicked="OnSaveClicked"
+                BackgroundColor="#007BFF" 
+                TextColor="White" 
+                CornerRadius="20"
+                Padding="10,5"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End"/>
+    </StackLayout>
+</ContentPage>

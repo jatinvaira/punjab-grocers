@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PGA.Views.HomePage"
+             Title="Home">
+    <StackLayout Padding="10" Spacing="20">
+        <!-- Add Product Button -->
+        <Label Text="Welcome to PunjabGrocers, scroll to view." 
+               FontSize="18" 
+               FontAttributes="Bold"
+               LineBreakMode="TailTruncation"
+               HorizontalOptions="FillAndExpand"/>
+        <Button Text="Add Product" 
+                Clicked="OnAddProductClicked"
+                BackgroundColor="#007BFF" 
+                TextColor="White" 
+                CornerRadius="20"
+                Padding="10,5"
+                VerticalOptions="Center"
+                HorizontalOptions="FillAndExpand"/>
+
+        <!-- Products CollectionView -->
+        <CollectionView x:Name="ProductsCollectionView"
+                        ItemsSource="{Binding Products}"
+                        ItemsLayout="HorizontalGrid"
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="200">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame HasShadow="True"
+                           CornerRadius="10"
+                           Margin="10"
+                           Padding="10"
+                           BackgroundColor="White"
+                           HeightRequest="150"
+                           WidthRequest="150">
+                        <StackLayout Orientation="Vertical" Spacing="10">
+                            <!-- Rounded Image Container -->
+                            <Frame HasShadow="False"
+                                   CornerRadius="20"
+                                   Padding="0"
+                                   BackgroundColor="Transparent"
+                                   HeightRequest="150"
+                                   WidthRequest="150"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Start">
+                                <Image Source="{Binding ImageUrl}" 
+                                       WidthRequest="150" 
+                                       HeightRequest="150"
+                                       Aspect="AspectFill" 
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand"/>
+                            </Frame>
+
+                            <!-- Product Details -->
+                            <StackLayout Orientation="Vertical" 
+                                         HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Title}" 
+                                       FontSize="18" 
+                                       FontAttributes="Bold"
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding Description}" 
+                                       FontSize="14" 
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+
+                            <!-- Action Buttons -->
+                            <StackLayout Orientation="Horizontal" 
+                                         HorizontalOptions="FillAndExpand">
+                                <!-- Update Button -->
+                                <Button Text="Update" 
+                                        Clicked="OnUpdateProductClicked" 
+                                        CommandParameter="{Binding Id}"
+                                        BackgroundColor="#4CAF50" 
+                                        TextColor="White" 
+                                        CornerRadius="25"
+                                        Padding="8,6"
+                                        HorizontalOptions="FillAndExpand"/>
+                                <!-- Delete Button -->
+                                <Button Text="Delete" 
+                                        Clicked="OnDeleteProductClicked" 
+                                        CommandParameter="{Binding Id}"
+                                        BackgroundColor="#FF4D4D" 
+                                        TextColor="White" 
+                                        CornerRadius="25"
+                                        Padding="8,6"
+                                        HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PGA.Views.UpdateProductPage"
+             Title="Update Product">
+    <StackLayout Padding="10">
+        <Entry x:Name="TitleEntry" Placeholder="Title" Text="{Binding Product.Title}" />
+        <Entry x:Name="DescriptionEntry" Placeholder="Description" Text="{Binding Product.Description}" />
+        <Entry x:Name="ImageUrlEntry" Placeholder="Image URL" Text="{Binding Product.ImageUrl}" />
+        <Entry x:Name="PriceEntry" Placeholder="Price" Text="{Binding Product.Price}" Keyboard="Numeric" />
+
+        <Button Text="Save" Clicked="OnSaveClicked" />
+    </StackLayout>
+</ContentPage>

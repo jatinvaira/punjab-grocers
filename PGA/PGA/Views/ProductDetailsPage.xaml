@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PGA.Views.ProductDetailPage"
+             Title="Product Details">
+
+    <StackLayout Padding="20">
+        <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="200"/>
+        <Label Text="{Binding Title}" FontSize="24" FontAttributes="Bold" />
+        <Label Text="{Binding Description}" FontSize="18" />
+        <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="20" FontAttributes="Bold" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PGA.Views.LoginScreen"
+             BackgroundColor="White">
+
+    <ContentPage.Content>
+        <StackLayout Padding="30" VerticalOptions="Center">
+
+            <!-- Logo -->
+            <Image Source="logo.png" 
+                   HeightRequest="100" 
+                   WidthRequest="100" 
+                   HorizontalOptions="Center" 
+                   Margin="0,0,0,30"/>
+
+            <!-- Email Entry -->
+            <Entry Placeholder="Email" 
+                   Keyboard="Email" 
+                   x:Name="emailEntry" 
+                   Margin="0,20,0,0" 
+                   BackgroundColor="#f0f0f0" 
+                   TextColor="Black" 
+                   PlaceholderColor="Gray"
+                   HeightRequest="50"
+                   FontSize="16"/>
+
+            <!-- Password Entry -->
+            <Entry Placeholder="Password" 
+                   IsPassword="True" 
+                   x:Name="passwordEntry" 
+                   Margin="0,20,0,0" 
+                   BackgroundColor="#f0f0f0" 
+                   TextColor="Black" 
+                   PlaceholderColor="Gray"
+                   HeightRequest="50"
+                   FontSize="16"/>
+
+            <!-- Login Button -->
+            <Button Text="Login"
+                    FontSize="20"
+                    TextColor="White"
+                    BackgroundColor="#388E3C"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Clicked="OnLoginClicked"
+                    Margin="0,40,0,0"/>
+
+            <!-- Forgot Password Button -->
+            <Button Text="Forgot Password?"
+                    FontSize="14"
+                    TextColor="Gray"
+                    BackgroundColor="Transparent"
+                    Clicked="OnForgotPasswordClicked"
+                    Margin="0,20,0,0"/>
+
+            <!-- Sign Up Link -->
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="Center"
+                         Margin="0,30,0,0">
+                <Label Text="Don't have an account?" 
+                       FontSize="14" 
+                       TextColor="Black"/>
+                <Button Text="Sign Up"
+                        FontSize="14"
+                        TextColor="#388E3C"
+                        BackgroundColor="Transparent"
+                        Clicked="OnSignUpClicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

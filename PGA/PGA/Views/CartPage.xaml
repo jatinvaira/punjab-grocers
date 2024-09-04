@@ -1,0 +1,58 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PGA.Views.CartPage"
+             Title="Cart"
+             BackgroundColor="White">
+
+    <StackLayout Padding="20" Spacing="20">
+        <!-- ListView for Products in Cart -->
+        <ListView x:Name="cartListView"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  ItemsSource="{Binding CartItems}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!-- Context actions for the list view item (e.g., remove item) -->
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Remove"
+                                      Clicked="OnRemoveItemClicked"
+                                      IsDestructive="True"
+                                      CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
+
+                        <StackLayout Orientation="Horizontal" Padding="10" Spacing="10">
+                            <!-- Product Image -->
+                            <Image Source="{Binding ImageUrl}"
+                                   WidthRequest="100"
+                                   HeightRequest="100"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"/>
+
+                            <!-- Product Details -->
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                <Label Text="{Binding Title}"
+                                       FontSize="18"
+                                       TextColor="Black"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Price, StringFormat='Price: {0:C}'}"
+                                       FontSize="14"
+                                       TextColor="Black"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Checkout Button -->
+        <Button Text="Proceed to Checkout"
+                FontSize="20"
+                BackgroundColor="#388E3C"
+                TextColor="White"
+                CornerRadius="25"
+                HeightRequest="50"
+                Clicked="OnCheckoutClicked"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PGA.Views.CheckoutPage"
+             Title="Checkout"
+             BackgroundColor="White">
+
+    <StackLayout Padding="20" Spacing="20">
+        <!-- Checkout Form (Name, Address, etc.) -->
+        <Entry Placeholder="Name" x:Name="nameEntry" />
+        <Entry Placeholder="Address" x:Name="addressEntry" />
+        <Entry Placeholder="Payment Info" x:Name="paymentInfoEntry" />
+
+        <!-- ListView for Products in Checkout -->
+        <ListView x:Name="checkoutListView"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Padding="10">
+                            <Label Text="{Binding Title}" FontSize="18" TextColor="Black"/>
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="14" TextColor="Black"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Label to Display Total Price -->
+        <Label x:Name="totalPriceLabel"
+               FontSize="20"
+               TextColor="Black"/>
+
+        <!-- Submit Button -->
+        <Button Text="Place Order"
+                FontSize="20"
+                BackgroundColor="#388E3C"
+                TextColor="White"
+                CornerRadius="25"
+                HeightRequest="50"
+                Clicked="OnPlaceOrderClicked"/>
+    </StackLayout>
+</ContentPage>

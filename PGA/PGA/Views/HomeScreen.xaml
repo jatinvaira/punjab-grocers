@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PGA.Views"
+             x:Class="PGA.Views.HomeScreen"
+             Title="Product List"
+             BackgroundColor="White">
+
+    <StackLayout Padding="20" Spacing="20">
+        <!-- Button to navigate to Home Page -->
+        <Button Text="Go to Home Page"
+                FontSize="20"
+                TextColor="White"
+                BackgroundColor="#388E3C"
+                CornerRadius="25"
+                HeightRequest="50"
+                Clicked="OnGoToHomePageClicked"
+                VerticalOptions="Center"
+                HorizontalOptions="FillAndExpand"/>
+
+        <!-- ListView for displaying products -->
+        <ListView x:Name="productsListView"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  ItemSelected="OnProductSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Padding="10" Spacing="10">
+                            <!-- Product Image -->
+                            <Image Source="{Binding ImageUrl}"
+                                   WidthRequest="150"
+                                   HeightRequest="150"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Start"/>
+
+                            <!-- Product Details -->
+                            <Label Text="{Binding Title}" 
+                                   FontSize="18" 
+                                   TextColor="Black"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Start"/>
+
+                            <Label Text="{Binding Description}" 
+                                   FontSize="14" 
+                                   TextColor="Gray"
+                                   LineBreakMode="TailTruncation"
+                                   HorizontalOptions="Start"/>
+
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" 
+                                   FontSize="14" 
+                                   TextColor="Black"
+                                   HorizontalOptions="Start"/>
+
+                            <!-- Add to Cart Button -->
+                            <Button Text="Add to Cart" 
+                                    Command="{Binding AddToCartCommand}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#007BFF"
+                                    TextColor="White"
+                                    CornerRadius="25"
+                                    Clicked="OnAddToCartClicked"
+                                    Padding="10,5"
+                                    HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
